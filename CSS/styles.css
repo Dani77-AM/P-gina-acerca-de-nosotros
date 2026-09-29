@@ -1,0 +1,326 @@
+:root {
+  --azul-cielo: #bce3ff;
+  --azul-suave: #eef7ff;
+  --naranja-clarito: #ffe8d6;
+  --naranja-accent: #fa4e02;
+  --crema-card: #fffdf9;
+  --texto-oscuro: #1e405b;
+  --texto-mutado: #5a7b9a;
+}
+
+body {
+  background: linear-gradient(135deg, var(--azul-suave) 0%, #ffffff 50%, var(--naranja-clarito) 100%);
+  background-attachment: fixed;
+  font-family: 'Quicksand', sans-serif;
+  color: var(--texto-oscuro);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* NAVBAR */
+.navbar-custom {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--azul-cielo);
+  position: relative;
+  z-index: 10;
+}
+
+.navbar-brand {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.5rem;
+  color: var(--texto-oscuro) !important;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+/* LOGO ESTÁTICO DE LA NAVBAR (Se oculta al inicio para evitar duplicados) */
+.otter-logo-nav {
+  background: var(--naranja-accent);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: 0 4px 10px rgba(250, 78, 2, 0.3);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* NUTRIA ANIMADA CON RECORRIDO DE IDA Y VUELTA */
+.otter-runner {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  width: 42px;
+  height: 42px;
+  background: var(--naranja-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: 0 6px 15px rgba(250, 78, 2, 0.5);
+  z-index: 99;
+  animation: viajeNutria 4.5s ease-in-out forwards;
+}
+
+@keyframes viajeNutria {
+  0% {
+    top: 10px;
+    left: 20px;
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  35% {
+    top: 95px;
+    left: calc(50% + 80px);
+    transform: scale(1.25) rotate(15deg);
+    opacity: 1;
+  }
+  65% {
+    top: 95px;
+    left: calc(50% + 80px);
+    transform: scale(1.25) rotate(-10deg);
+    opacity: 1;
+  }
+  98% {
+    top: 10px;
+    left: 20px;
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    top: 10px;
+    left: 20px;
+    opacity: 0;
+  }
+}
+
+/* HERO TITLE */
+.header-seccion {
+  text-align: center;
+  margin: 60px 0 20px;
+  position: relative;
+}
+
+.titulo-dinamico {
+  font-family: 'Anton', sans-serif;
+  font-size: 3.2rem;
+  letter-spacing: 2px;
+  color: var(--texto-oscuro);
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.titulo-dinamico span {
+  color: var(--naranja-accent);
+}
+
+.subtitulo {
+  font-size: 1.1rem;
+  color: var(--texto-mutado);
+  font-weight: 600;
+}
+
+/* HISTORIA, MISIÓN & VISIÓN */
+.card-historia {
+  background: white;
+  border-radius: 20px;
+  border: 2px solid var(--azul-cielo);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card-historia:hover {
+  transform: translateY(-5px);
+  border-color: var(--naranja-accent);
+}
+
+/* VALORES */
+.card-valor {
+  background: white;
+  border-radius: 16px;
+  border: 2px solid var(--azul-cielo);
+  transition: all 0.3s ease;
+}
+
+.card-valor:hover {
+  transform: translateY(-6px);
+  background: var(--crema-card);
+  border-color: var(--naranja-accent);
+  box-shadow: 0 10px 20px rgba(250, 78, 2, 0.1);
+}
+
+/* CARDS DE INTEGRANTES 3D */
+.grid-equipo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 2fr));
+  gap: 25px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.card-flip-container {
+  perspective: 1200px;
+  height: 340px;
+  cursor: pointer;
+}
+
+.card-flip {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 20px;
+}
+
+.card-flip-container.flipped .card-flip {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 10px 20px rgba(30, 64, 91, 0.08);
+}
+
+.card-front {
+  background: #ffffff;
+  border: 2px solid var(--azul-cielo);
+  transition: border-color 0.3s ease;
+}
+
+.card-flip-container:hover .card-front {
+  border-color: var(--naranja-accent);
+}
+
+.badge-click {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 0.75rem;
+  background: var(--azul-suave);
+  color: var(--texto-oscuro);
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.card-front img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--azul-cielo);
+}
+
+.info-front h4 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.2rem;
+  margin: 10px 0 2px;
+  text-align: center;
+}
+
+.info-front span {
+  font-size: 0.85rem;
+  color: var(--texto-mutado);
+  display: block;
+  text-align: center;
+}
+
+.card-back {
+  background-color: var(--crema-card);
+  border: 2px solid var(--naranja-accent);
+  transform: rotateY(180deg);
+  text-align: center;
+}
+
+.card-back p {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin-top: 10px;
+}
+
+.badges span {
+  background: var(--naranja-accent);
+  color: white;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.7rem;
+  padding: 3px 8px;
+  border-radius: 6px;
+  margin: 2px;
+  display: inline-block;
+}
+
+.btn-contacto {
+  background-color: var(--texto-oscuro);
+  color: white;
+  font-size: 0.8rem;
+  padding: 6px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.btn-contacto:hover {
+  background-color: var(--naranja-accent);
+  color: white;
+}
+
+.redes-card a {
+  color: var(--texto-oscuro);
+  font-size: 1.2rem;
+  margin: 0 6px;
+}
+
+.redes-card a:hover {
+  color: var(--naranja-accent);
+}
+
+/* ACCORDION FAQ */
+.accordion-button:not(.collapsed) {
+  background-color: var(--naranja-clarito);
+  color: var(--naranja-accent);
+  font-weight: bold;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: var(--naranja-accent);
+}
+
+/* FOOTER */
+footer {
+  margin-top: auto;
+  background-color: #ffffff;
+  border-top: 2px solid var(--azul-cielo);
+  padding: 35px 20px;
+  text-align: center;
+}
+
+.footer-redes a {
+  color: var(--texto-oscuro);
+  font-size: 1.5rem;
+  margin: 0 10px;
+  transition: color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.footer-redes a:hover {
+  color: var(--naranja-accent);
+  transform: scale(1.2);
+}
