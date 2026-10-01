@@ -19,34 +19,103 @@
   </head>
   <body>
 
-    <!-- NUTRIA ANIMADA QUE RECORRE Y VUELVE -->
-    <div class="otter-runner" id="nutriaMovil" title="¡Haz clic para repetir!">
-      🦦
-    </div>
+    <!-- Navbar (cuando se incorpore al repo principal sustituir <nav> por el siguiente placeholder) -->
+    <!--<div id="navbar-placeholder"></div>-->
 
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
-      <div class="container">
-        <a class="navbar-brand" id="brandNav">
-          <!-- Logo definitivo de la Navbar -->
-          <div class="otter-logo-nav" id="navbarLogo">
-            🦦
-          </div>
-          Otter Clothes
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link fw-bold" href="#">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link fw-bold" href="#">Catálogo</a></li>
-            <li class="nav-item"><a class="nav-link fw-bold active text-danger" href="#">Acerca de Nosotros</a></li>
-            <li class="nav-item"><a class="nav-link fw-bold" href="#">Contacto</a></li>
+    <nav class="navbar navbar-expand-lg custom-navbar fixed-top">
+    <div class="container-fluid">
+    <!-- Logo — path relativo a la raíz del proyecto (navbar.js lo hace absoluto) -->
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <img
+        src="assets%20otterdevs/logo-cafeencrema-otter.png"
+        alt="Logo de OtterClothes"
+        width="44"
+        height="44"
+        style="object-fit: contain"
+      />
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Abrir menú"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="HTML/aboutUs.html">Acerca de nosotros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="HTML/contactanos.html">Contáctanos</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Estilos
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Kpop Idol</a></li>
+            <li><a class="dropdown-item" href="#">Y2K</a></li>
+            <li><a class="dropdown-item" href="#">Casual</a></li>
+            <li><a class="dropdown-item" href="#">Streetwear</a></li>
+            <li><a class="dropdown-item" href="#">Vintage</a></li>
           </ul>
-        </div>
-      </div>
-    </nav>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="HTML/lista_de_items.html">
+            Outfits </a
+          ><!--
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Destacados</a></li>
+            <li><a class="dropdown-item" href="#">Nuevos Outfits</a></li>
+            <li><a class="dropdown-item" href="#">Por estilo</a></li>
+            <li><a class="dropdown-item" href="#">Por ocasión</a></li>
+          </ul>
+          -->
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="HTML/carrito.html">
+            <i class="bi bi-bag"></i> Mi carrito
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="HTML/indexSku.html">
+            <i class="bi bi-bag"></i> Agregar producto
+          </a>
+        </li>
+      </ul>
+
+      <form class="d-flex align-items-center gap-2" role="search">
+        <input
+          class="form-control"
+          type="search"
+          placeholder="Harajuku, Old Money..."
+          aria-label="Buscar"
+        />
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<!--Fin navbar-->
 
     <!-- TÍTULO PRINCIPAL -->
     <div class="header-seccion">
@@ -434,10 +503,7 @@
     <footer>
       <div class="container">
         <div class="footer-redes mb-3">
-          <a href="#"><i class="bi bi-instagram"></i></a>
-          <a href="#"><i class="bi bi-facebook"></i></a>
-          <a href="#"><i class="bi bi-twitter-x"></i></a>
-          <a href="#"><i class="bi bi-github"></i></a>
+          <a href="https://github.com/Bri-idk/OtterClothes" target="_blank"><i class="bi bi-github"></i></a>
         </div>
         <p class="mb-1 text-muted fw-bold">Otter Clothes &copy; 2026 - Todos los derechos reservados</p>
         <small class="text-muted">Diseñado con <i class="bi bi-heart-fill text-danger"></i> por el equipo de Otter Devs</small>

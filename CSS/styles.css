@@ -1,46 +1,87 @@
+/* =========================
+   VARIABLES DE MARCA (tomadas de la guía base)
+========================= */
 :root {
-  --azul-cielo: #bce3ff;
-  --azul-suave: #eef7ff;
-  --naranja-clarito: #ffe8d6;
-  --naranja-accent: #fa4e02;
-  --crema-card: #fffdf9;
-  --texto-oscuro: #1e405b;
-  --texto-mutado: #5a7b9a;
+  --crema: #F8DFB7;
+  --naranja: #FA4E02;
+  --cafe: #49261E;
+  --celeste: #C9E7F6;
+  --azul: #35509a;
+
+  --oscuro: #101114;
+  --oscuro-2: #18191d;
+  --oscuro-3: #2b2d31;
+
+  /* Derivados para fondos y textos suaves */
+  --crema-suave: #FFF8ED;
+  --cafe-suave: #65382D;
+}
+
+/* =========================
+   GENERAL
+========================= */
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: linear-gradient(135deg, var(--azul-suave) 0%, #ffffff 50%, var(--naranja-clarito) 100%);
+  margin: 0;
+
+  /* Gradiente radial elíptico. Centro claro (crema) para no distraer del contenido, colores fuertes (celeste, azul, cafe) al borde */
+  background: radial-gradient(
+    ellipse at center,
+    var(--crema-suave) 0%,
+    var(--crema) 30%,
+    var(--celeste) 60%,
+    var(--azul) 85%,
+    var(--cafe) 100%
+  );
   background-attachment: fixed;
+
   font-family: 'Quicksand', sans-serif;
-  color: var(--texto-oscuro);
+  color: var(--cafe);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
 }
 
-/* NAVBAR */
-.navbar-custom {
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 2px solid var(--azul-cielo);
-  position: relative;
-  z-index: 10;
+/* =========================
+   NAVBAR (sólida, crema, sticky arriba)
+========================= */
+.navbar-custom,
+.custom-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  background-color: var(--crema);
+  border-bottom: 2px solid var(--cafe);
+  font-family: 'Fredoka', sans-serif;
 }
 
 .navbar-brand {
   font-family: 'Fredoka', sans-serif;
   font-size: 1.5rem;
-  color: var(--texto-oscuro) !important;
+  color: var(--cafe) !important;
   display: flex;
   align-items: center;
   gap: 10px;
   cursor: pointer;
 }
 
-/* LOGO ESTÁTICO DE LA NAVBAR (Se oculta al inicio para evitar duplicados) */
+.custom-navbar .navbar-brand span,
+.custom-navbar .nav-link {
+  color: var(--cafe);
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active {
+  color: var(--naranja);
+}
+
+/* Logo estático de la navbar (se oculta al inicio para evitar duplicados) */
 .otter-logo-nav {
-  background: var(--naranja-accent);
+  background: var(--naranja);
   width: 42px;
   height: 42px;
   border-radius: 50%;
@@ -53,14 +94,14 @@ body {
   transition: opacity 0.2s ease-in-out;
 }
 
-/* NUTRIA ANIMADA CON RECORRIDO DE IDA Y VUELTA */
+/* Nutria animada con recorrido de ida y vuelta */
 .otter-runner {
   position: absolute;
   top: 10px;
   left: 20px;
   width: 42px;
   height: 42px;
-  background: var(--naranja-accent);
+  background: var(--naranja);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -103,7 +144,9 @@ body {
   }
 }
 
-/* HERO TITLE */
+/* =========================
+   HERO TITLE
+========================= */
 .header-seccion {
   text-align: center;
   margin: 60px 0 20px;
@@ -114,50 +157,118 @@ body {
   font-family: 'Anton', sans-serif;
   font-size: 3.2rem;
   letter-spacing: 2px;
-  color: var(--texto-oscuro);
+  color: var(--azul);
   display: inline-block;
   transition: transform 0.3s ease, color 0.3s ease;
+  text-transform: uppercase;
 }
 
 .titulo-dinamico span {
-  color: var(--naranja-accent);
+  color: var(--naranja);
 }
 
 .subtitulo {
   font-size: 1.1rem;
-  color: var(--texto-mutado);
+  color: var(--cafe);
   font-weight: 600;
 }
 
-/* HISTORIA, MISIÓN & VISIÓN */
+/* =========================
+   HISTORIA, MISIÓN & VISIÓN
+========================= */
 .card-historia {
-  background: white;
+  /* Gradiente lineal de las cards */
+  background: linear-gradient(
+    90deg,
+    var(--crema) 0%,
+    var(--crema-suave) 50%,
+    var(--crema) 100%
+  );
   border-radius: 20px;
-  border: 2px solid var(--azul-cielo);
+  border: 2px solid var(--celeste);
+  border-top: 6px solid var(--naranja);
   transition: transform 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 10px 30px rgba(73, 38, 30, 0.12);
 }
 
 .card-historia:hover {
   transform: translateY(-5px);
-  border-color: var(--naranja-accent);
+  border-color: var(--naranja);
 }
 
-/* VALORES */
+.card-historia h3 {
+  color: var(--naranja) !important;
+}
+
+.card-historia .text-navy {
+  color: var(--naranja) !important;
+}
+
+.card-historia .text-danger {
+  color: var(--naranja) !important;
+}
+
+.card-historia .text-primary {
+  color: var(--azul) !important;
+}
+
+.card-historia .text-warning {
+  color: var(--cafe-suave) !important;
+}
+
+.card-historia p {
+  color: var(--cafe) !important;
+}
+
+/* =========================
+   VALORES
+   (cards con degradado crema simétrico)
+========================= */
 .card-valor {
-  background: white;
+  background: linear-gradient(
+    90deg,
+    var(--crema) 0%,
+    var(--crema-suave) 50%,
+    var(--crema) 100%
+  );
   border-radius: 16px;
-  border: 2px solid var(--azul-cielo);
+  border: 2px solid var(--celeste);
   transition: all 0.3s ease;
 }
 
 .card-valor:hover {
   transform: translateY(-6px);
-  background: var(--crema-card);
-  border-color: var(--naranja-accent);
+  border-color: var(--naranja);
   box-shadow: 0 10px 20px rgba(250, 78, 2, 0.1);
 }
 
-/* CARDS DE INTEGRANTES 3D */
+.card-valor h5 {
+  color: var(--cafe);
+}
+
+.card-valor small {
+  color: var(--cafe-suave) !important;
+}
+
+.card-valor .text-danger {
+  color: var(--naranja) !important;
+}
+
+.card-valor .text-success {
+  color: var(--azul) !important;
+}
+
+.card-valor .text-primary {
+  color: var(--azul) !important;
+}
+
+.card-valor .text-warning {
+  color: var(--cafe-suave) !important;
+}
+
+/* =========================
+   CARDS DE INTEGRANTES 3D
+========================= */
 .grid-equipo {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(210px, 2fr));
@@ -185,7 +296,8 @@ body {
   transform: rotateY(180deg);
 }
 
-.card-front, .card-back {
+.card-front,
+.card-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -196,17 +308,22 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 10px 20px rgba(30, 64, 91, 0.08);
+  box-shadow: 0 10px 20px rgba(73, 38, 30, 0.12);
 }
 
 .card-front {
-  background: #ffffff;
-  border: 2px solid var(--azul-cielo);
+  background: linear-gradient(
+    90deg,
+    var(--crema) 0%,
+    var(--crema-suave) 50%,
+    var(--crema) 100%
+  );
+  border: 2px solid var(--celeste);
   transition: border-color 0.3s ease;
 }
 
 .card-flip-container:hover .card-front {
-  border-color: var(--naranja-accent);
+  border-color: var(--naranja);
 }
 
 .badge-click {
@@ -214,8 +331,8 @@ body {
   top: 15px;
   right: 15px;
   font-size: 0.75rem;
-  background: var(--azul-suave);
-  color: var(--texto-oscuro);
+  background: var(--crema-suave);
+  color: var(--cafe);
   padding: 3px 8px;
   border-radius: 10px;
   font-weight: 700;
@@ -226,7 +343,7 @@ body {
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--azul-cielo);
+  border: 3px solid var(--naranja);
 }
 
 .info-front h4 {
@@ -234,31 +351,42 @@ body {
   font-size: 1.2rem;
   margin: 10px 0 2px;
   text-align: center;
+  color: var(--cafe);
 }
 
 .info-front span {
   font-size: 0.85rem;
-  color: var(--texto-mutado);
+  color: var(--cafe-suave);
   display: block;
   text-align: center;
 }
 
 .card-back {
-  background-color: var(--crema-card);
-  border: 2px solid var(--naranja-accent);
+  background: linear-gradient(
+    90deg,
+    var(--crema) 0%,
+    var(--crema-suave) 50%,
+    var(--crema) 100%
+  );
+  border: 2px solid var(--naranja);
   transform: rotateY(180deg);
   text-align: center;
+}
+
+.card-back h5 {
+  color: var(--cafe);
 }
 
 .card-back p {
   font-size: 0.85rem;
   line-height: 1.4;
   margin-top: 10px;
+  color: var(--cafe);
 }
 
 .badges span {
-  background: var(--naranja-accent);
-  color: white;
+  background: var(--naranja);
+  color: #fff;
   font-family: 'Fredoka', sans-serif;
   font-size: 0.7rem;
   padding: 3px 8px;
@@ -268,52 +396,68 @@ body {
 }
 
 .btn-contacto {
-  background-color: var(--texto-oscuro);
-  color: white;
+  background-color: var(--cafe);
+  color: #fff;
   font-size: 0.8rem;
   padding: 6px 14px;
   border-radius: 8px;
   text-decoration: none;
+  transition: background-color 0.25s ease;
 }
 
 .btn-contacto:hover {
-  background-color: var(--naranja-accent);
-  color: white;
+  background-color: var(--naranja);
+  color: #fff;
 }
 
 .redes-card a {
-  color: var(--texto-oscuro);
+  color: var(--cafe);
   font-size: 1.2rem;
   margin: 0 6px;
+  transition: color 0.25s ease;
 }
 
 .redes-card a:hover {
-  color: var(--naranja-accent);
+  color: var(--naranja);
 }
 
-/* ACCORDION FAQ */
+/* =========================
+   ACCORDION FAQ
+========================= */
+.accordion-button {
+  color: var(--cafe);
+  background-color: var(--crema-suave);
+}
+
 .accordion-button:not(.collapsed) {
-  background-color: var(--naranja-clarito);
-  color: var(--naranja-accent);
+  background-color: var(--crema);
+  color: var(--naranja);
   font-weight: bold;
 }
 
 .accordion-button:focus {
   box-shadow: none;
-  border-color: var(--naranja-accent);
+  border-color: var(--naranja);
 }
 
-/* FOOTER */
+.accordion-body {
+  color: var(--cafe) !important;
+  background-color: var(--crema-suave);
+}
+
+/* =========================
+   FOOTER
+========================= */
 footer {
   margin-top: auto;
-  background-color: #ffffff;
-  border-top: 2px solid var(--azul-cielo);
+  background-color: var(--crema);
+  border-top: 2px solid var(--cafe);
   padding: 35px 20px;
   text-align: center;
 }
 
 .footer-redes a {
-  color: var(--texto-oscuro);
+  color: var(--cafe);
   font-size: 1.5rem;
   margin: 0 10px;
   transition: color 0.3s ease, transform 0.2s ease;
@@ -321,6 +465,11 @@ footer {
 }
 
 .footer-redes a:hover {
-  color: var(--naranja-accent);
+  color: var(--naranja);
   transform: scale(1.2);
+}
+
+footer p,
+footer small {
+  color: var(--cafe) !important;
 }
