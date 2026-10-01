@@ -28,13 +28,12 @@ body {
   margin: 0;
 
   /* Gradiente radial elíptico. Centro claro (crema) para no distraer del contenido, colores fuertes (celeste, azul, cafe) al borde */
-  background: radial-gradient(
-    ellipse at center,
-    var(--crema-suave) 0%,
-    var(--crema) 30%,
-    var(--celeste) 60%,
-    var(--azul) 85%,
-    var(--cafe) 100%
+  background: linear-gradient(
+    to bottom,
+    var(--naranja) 0%,
+    var(--naranja) 20%,
+    var(--crema-suave) 65%,
+    var(--crema) 100%
   );
   background-attachment: fixed;
 
@@ -221,52 +220,6 @@ body {
 }
 
 /* =========================
-   VALORES
-   (cards con degradado crema simétrico)
-========================= */
-.card-valor {
-  background: linear-gradient(
-    90deg,
-    var(--crema) 0%,
-    var(--crema-suave) 50%,
-    var(--crema) 100%
-  );
-  border-radius: 16px;
-  border: 2px solid var(--celeste);
-  transition: all 0.3s ease;
-}
-
-.card-valor:hover {
-  transform: translateY(-6px);
-  border-color: var(--naranja);
-  box-shadow: 0 10px 20px rgba(250, 78, 2, 0.1);
-}
-
-.card-valor h5 {
-  color: var(--cafe);
-}
-
-.card-valor small {
-  color: var(--cafe-suave) !important;
-}
-
-.card-valor .text-danger {
-  color: var(--naranja) !important;
-}
-
-.card-valor .text-success {
-  color: var(--azul) !important;
-}
-
-.card-valor .text-primary {
-  color: var(--azul) !important;
-}
-
-.card-valor .text-warning {
-  color: var(--cafe-suave) !important;
-}
-
-/* =========================
    CARDS DE INTEGRANTES 3D
 ========================= */
 .grid-equipo {
@@ -419,30 +372,6 @@ body {
 
 .redes-card a:hover {
   color: var(--naranja);
-}
-
-/* =========================
-   ACCORDION FAQ
-========================= */
-.accordion-button {
-  color: var(--cafe);
-  background-color: var(--crema-suave);
-}
-
-.accordion-button:not(.collapsed) {
-  background-color: var(--crema);
-  color: var(--naranja);
-  font-weight: bold;
-}
-
-.accordion-button:focus {
-  box-shadow: none;
-  border-color: var(--naranja);
-}
-
-.accordion-body {
-  color: var(--cafe) !important;
-  background-color: var(--crema-suave);
 }
 
 /* =========================
