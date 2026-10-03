@@ -3,14 +3,13 @@
 ========================= */
 :root {
   --crema: #F8DFB7;
-  --naranja: #FA4E02;
+  --naranja: #ed450d;
   --cafe: #49261E;
-  --celeste: #C9E7F6;
+  --celeste: #aad6ec;
   --azul: #35509a;
+  --durazno: #f4a261;
 
-  --oscuro: #101114;
-  --oscuro-2: #18191d;
-  --oscuro-3: #2b2d31;
+
 
   /* Derivados para fondos y textos suaves */
   --crema-suave: #FFF8ED;
@@ -20,12 +19,10 @@
 /* =========================
    GENERAL
 ========================= */
-* {
-  box-sizing: border-box;
-}
+
 
 body {
-  margin: 0;
+  
 
   /* Gradiente radial elíptico. Centro claro (crema) para no distraer del contenido, colores fuertes (celeste, azul, cafe) al borde */
   background: linear-gradient(
@@ -48,7 +45,7 @@ body {
 /* =========================
    NAVBAR (sólida, crema, sticky arriba)
 ========================= */
-.navbar-custom,
+
 .custom-navbar {
   position: sticky;
   top: 0;
@@ -62,86 +59,21 @@ body {
   font-family: 'Fredoka', sans-serif;
   font-size: 1.5rem;
   color: var(--cafe) !important;
-  display: flex;
-  align-items: center;
-  gap: 10px;
   cursor: pointer;
 }
 
-.custom-navbar .navbar-brand span,
+.custom-navbar .navbar-toggler {
+  border-color: var(--cafe);
+}
 .custom-navbar .nav-link {
   color: var(--cafe);
 }
 
 .custom-navbar .nav-link:hover,
-.custom-navbar .nav-link.active {
+.custom-navbar  {
   color: var(--naranja);
 }
 
-/* Logo estático de la navbar (se oculta al inicio para evitar duplicados) */
-.otter-logo-nav {
-  background: var(--naranja);
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4rem;
-  box-shadow: 0 4px 10px rgba(250, 78, 2, 0.3);
-  opacity: 0;
-  transition: opacity 0.2s ease-in-out;
-}
-
-/* Nutria animada con recorrido de ida y vuelta */
-.otter-runner {
-  position: absolute;
-  top: 10px;
-  left: 20px;
-  width: 42px;
-  height: 42px;
-  background: var(--naranja);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4rem;
-  box-shadow: 0 6px 15px rgba(250, 78, 2, 0.5);
-  z-index: 99;
-  animation: viajeNutria 4.5s ease-in-out forwards;
-}
-
-@keyframes viajeNutria {
-  0% {
-    top: 10px;
-    left: 20px;
-    transform: scale(1) rotate(0deg);
-    opacity: 1;
-  }
-  35% {
-    top: 95px;
-    left: calc(50% + 80px);
-    transform: scale(1.25) rotate(15deg);
-    opacity: 1;
-  }
-  65% {
-    top: 95px;
-    left: calc(50% + 80px);
-    transform: scale(1.25) rotate(-10deg);
-    opacity: 1;
-  }
-  98% {
-    top: 10px;
-    left: 20px;
-    transform: scale(1) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    top: 10px;
-    left: 20px;
-    opacity: 0;
-  }
-}
 
 /* =========================
    HERO TITLE
@@ -149,7 +81,7 @@ body {
 .header-seccion {
   text-align: center;
   margin: 60px 0 20px;
-  position: relative;
+  
 }
 
 .titulo-dinamico {
@@ -158,13 +90,9 @@ body {
   letter-spacing: 2px;
   color: var(--azul);
   display: inline-block;
-  transition: transform 0.3s ease, color 0.3s ease;
   text-transform: uppercase;
 }
 
-.titulo-dinamico span {
-  color: var(--naranja);
-}
 
 .subtitulo {
   font-size: 1.1rem;
@@ -184,24 +112,21 @@ body {
     var(--crema) 100%
   );
   border-radius: 20px;
-  border: 2px solid var(--celeste);
-  border-top: 6px solid var(--naranja);
+  border: 1px solid var(--cafe-suave);
+  border-top: 3px solid var(--cafe);
   transition: transform 0.3s ease, border-color 0.3s ease;
   box-shadow: 0 10px 30px rgba(73, 38, 30, 0.12);
 }
 
 .card-historia:hover {
   transform: translateY(-5px);
-  border-color: var(--naranja);
+  border-color: var(--cafe);
 }
 
 .card-historia h3 {
   color: var(--naranja) !important;
 }
 
-.card-historia .text-navy {
-  color: var(--naranja) !important;
-}
 
 .card-historia .text-danger {
   color: var(--naranja) !important;
@@ -255,7 +180,7 @@ body {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  border-radius: 20px;
+  border-radius: 16px;
   padding: 25px 20px;
   display: flex;
   flex-direction: column;
@@ -271,12 +196,12 @@ body {
     var(--crema-suave) 50%,
     var(--crema) 100%
   );
-  border: 2px solid var(--celeste);
-  transition: border-color 0.3s ease;
+  border: 6px double var(--cafe-suave);
+  transition: border-color 0.4s ease;
 }
 
 .card-flip-container:hover .card-front {
-  border-color: var(--naranja);
+  border-color: var(--celeste);
 }
 
 .badge-click {
@@ -285,9 +210,9 @@ body {
   right: 15px;
   font-size: 0.75rem;
   background: var(--crema-suave);
-  color: var(--cafe);
+  color: var(--azul);
   padding: 3px 8px;
-  border-radius: 10px;
+  border-radius: 5px;
   font-weight: 700;
 }
 
@@ -296,7 +221,7 @@ body {
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--naranja);
+  border: 4px double var(--durazno);
 }
 
 .info-front h4 {
@@ -321,7 +246,7 @@ body {
     var(--crema-suave) 50%,
     var(--crema) 100%
   );
-  border: 2px solid var(--naranja);
+  border: 5px double var(--cafe-suave);
   transform: rotateY(180deg);
   text-align: center;
 }
@@ -333,12 +258,12 @@ body {
 .card-back p {
   font-size: 0.85rem;
   line-height: 1.4;
-  margin-top: 10px;
-  color: var(--cafe);
+  margin-top: 1opx;
+  color: var(--azul);
 }
 
 .badges span {
-  background: var(--naranja);
+  background: var(--celeste);
   color: #fff;
   font-family: 'Fredoka', sans-serif;
   font-size: 0.7rem;
@@ -349,22 +274,22 @@ body {
 }
 
 .btn-contacto {
-  background-color: var(--cafe);
+  background-color: var(--naranja);
   color: #fff;
   font-size: 0.8rem;
   padding: 6px 14px;
-  border-radius: 8px;
+  border-radius: 7px;
   text-decoration: none;
   transition: background-color 0.25s ease;
 }
 
 .btn-contacto:hover {
-  background-color: var(--naranja);
+  background-color: var(--durazno);
   color: #fff;
 }
 
 .redes-card a {
-  color: var(--cafe);
+  color: var(--celeste);
   font-size: 1.2rem;
   margin: 0 6px;
   transition: color 0.25s ease;
